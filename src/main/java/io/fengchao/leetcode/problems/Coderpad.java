@@ -1,5 +1,10 @@
 package io.fengchao.leetcode.problems;
 
+import java.util.Deque;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Queue;
+
 public class Coderpad {
   public static void main(String[] args) {
 
@@ -20,6 +25,24 @@ public class Coderpad {
     //double approximates decimal numbers.
     double test1 = 1.0000000001;
     System.out.println(test1);
+
+    Map<Character, Integer> map = new HashMap<>();
+    map.put('a', 1);
+    map.put('b', 3);
+    map.put('c', 4);
+
+    for (Map.Entry<Character, Integer> entry : map.entrySet()) {
+      System.out.println(entry.getKey() + " " + entry.getValue());
+    }
+
+    for(Character c : map.keySet()) {
+      System.out.println(c);
+    }
+
+    for (Integer integer : map.values()) {
+      System.out.println(integer);
+    }
+
 
   }
 }
