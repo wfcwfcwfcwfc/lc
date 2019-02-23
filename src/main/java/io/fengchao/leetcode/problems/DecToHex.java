@@ -33,6 +33,18 @@ public class DecToHex {
     System.out.println(binToInteger("10000"));
     System.out.println("========");
 
+    //Difference between ">>" and ">>>"
+    int nbr1 = Integer.MIN_VALUE;
+    System.out.println(Integer.toBinaryString(nbr1));
+    System.out.println(nbr1);
+    nbr1 = nbr1 >>> 1;
+    System.out.println(Integer.toBinaryString(nbr1));
+    System.out.println(nbr1);
+    Character cc = 'c';
+
+
+
+
   }
 
   private static String toBinary(int number) {
