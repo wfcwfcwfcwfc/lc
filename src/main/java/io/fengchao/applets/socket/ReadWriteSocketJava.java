@@ -1,4 +1,4 @@
-package io.fengchao.applets;
+package io.fengchao.applets.socket;
 
 public class ReadWriteSocketJava {
 
