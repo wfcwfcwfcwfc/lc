@@ -10,14 +10,15 @@ public class FindDuplicateAndSortElementsInArray {
     System.out.println(r);
   }
 
-  public List<Integer> solution(int[] nums) {
+  private List<Integer> solution(int[] nums) {
     Map<Integer, Integer> freq = new HashMap<>();
-    ArrayList<Integer> result = new ArrayList<Integer>();
+    ArrayList<Integer> result = new ArrayList<>();
     for(int num : nums) {
       freq.put(num, freq.getOrDefault(num, 0) + 1);
     }
     //这一句应该好好复习
-    PriorityQueue<Map.Entry<Integer, Integer>> pq = new PriorityQueue<>(Comparator.comparing(Map.Entry<Integer, Integer>::getValue).reversed().
+    PriorityQueue<Map.Entry<Integer, Integer>> pq = new PriorityQueue<>(Comparator
+        .comparing(Map.Entry<Integer, Integer>::getValue).reversed().
         thenComparing(Map.Entry<Integer, Integer>::getKey));
 
     for(Map.Entry<Integer, Integer> entry : freq.entrySet()) {
