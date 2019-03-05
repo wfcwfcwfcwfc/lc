@@ -44,5 +44,8 @@ public class Coderpad {
     }
 
 
+    String str1 = "wfc";
+    str1.contains("w");
+
   }
 }
