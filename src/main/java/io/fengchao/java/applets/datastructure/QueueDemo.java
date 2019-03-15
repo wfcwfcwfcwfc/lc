@@ -1,4 +1,4 @@
-package io.fengchao.applets.datastructure;
+package io.fengchao.java.applets.datastructure;
 
 
 import java.util.LinkedList;

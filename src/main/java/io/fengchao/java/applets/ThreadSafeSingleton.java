@@ -1,4 +1,4 @@
-package io.fengchao.applets;
+package io.fengchao.java.applets;
 
 public class ThreadSafeSingleton {
   private static ThreadSafeSingleton INSTANCE;

@@ -1,4 +1,4 @@
-package io.fengchao;
+package io.fengchao.java.applets.datastructure;
 
 import java.util.ArrayList;
 import java.util.List;

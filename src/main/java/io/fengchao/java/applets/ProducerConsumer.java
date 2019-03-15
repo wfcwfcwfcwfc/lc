@@ -1,4 +1,4 @@
-package io.fengchao.applets;
+package io.fengchao.java.applets;
 
 // Java program to implement solution of producer
 // consumer problem.

@@ -1,4 +1,4 @@
-package io.fengchao.applets.multithreading;
+package io.fengchao.java.applets.multithreading;
 
 // Java code for thread creation by extending
 // the Thread class

@@ -1,4 +1,4 @@
-package io.fengchao.applets.socket;
+package io.fengchao.java.applets.socket;
 
 import java.io.IOException;
 import java.net.Socket;
