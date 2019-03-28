@@ -1,4 +1,4 @@
-package io.fengchao.java.applets;
+package io.fengchao.corejava.applets;
 
 import java.util.Scanner;
 

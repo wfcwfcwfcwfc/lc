@@ -1,4 +1,4 @@
-package io.fengchao.java.applets.multithreading;
+package io.fengchao.corejava.applets.multithreading;
 
 public class ThreadClassDemo {
   public static void main(String[] args) throws InterruptedException {

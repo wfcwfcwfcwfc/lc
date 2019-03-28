@@ -1,4 +1,4 @@
-package io.fengchao.java.applets.datastructure;
+package io.fengchao.corejava.applets.datastructure;
 
 import java.util.HashMap;
 import java.util.Map;

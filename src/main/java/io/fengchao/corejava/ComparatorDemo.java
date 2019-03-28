@@ -1,4 +1,4 @@
-package io.fengchao.java;
+package io.fengchao.corejava;
 
 import java.util.Arrays;
 import java.util.Comparator;

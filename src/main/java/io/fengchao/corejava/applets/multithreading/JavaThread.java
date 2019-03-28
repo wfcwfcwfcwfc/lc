@@ -1,8 +1,8 @@
-package io.fengchao.java.applets.multithreading;
+package io.fengchao.corejava.applets.multithreading;
 
-// Java code for thread creation by implementing
-// the Runnable Interface
-class MultithreadingDemoR implements Runnable
+// Java code for thread creation by extending
+// the Thread class
+class MultithreadingDemo extends Thread
 {
   public void run()
   {
@@ -23,14 +23,14 @@ class MultithreadingDemoR implements Runnable
 }
 
 // Main Class
-class JavaRunnable
+public class JavaThread
 {
   public static void main(String[] args)
   {
     int n = 8; // Number of threads
     for (int i=0; i<8; i++)
     {
-      Thread object = new Thread(new MultithreadingDemoR());
+      MultithreadingDemo object = new MultithreadingDemo();
       object.start();
     }
   }
