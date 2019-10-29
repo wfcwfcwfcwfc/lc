@@ -19,7 +19,7 @@ public class TreeUtil {
         TreeNode left = deserializeFromArray(array, (pos + 1) * 2 - 1);
         TreeNode right = deserializeFromArray(array, (pos + 1) * 2);
 
-        TreeNode root = new TreeNode();
+        TreeNode root = new TreeNode(0);
         root.value = array[pos];
         root.left = left;
         root.right = right;
