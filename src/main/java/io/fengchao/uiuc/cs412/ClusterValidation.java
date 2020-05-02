@@ -1,5 +1,6 @@
 package io.fengchao.uiuc.cs412;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -7,10 +8,15 @@ import java.util.Scanner;
 public class ClusterValidation {
   public static void main(String[] args) {
     List<String> input = getDummyInput();
-    double[][] probMatrix = calcCountMatrix(input);
-    double nmi = calcNMI(probMatrix);
+    int[][] countMatrix = calcCountMatrix(input);
+    double[][] probMatrix = convertProbMatrix(countMatrix, input.size());
 
-    System.out.println(nmi);
+    double nmi = calcNMI(probMatrix);
+    double jaccard = calcJaccard(countMatrix);
+    DecimalFormat decimalFormat = new DecimalFormat("0.000");
+    System.out.print(decimalFormat.format(nmi));
+    System.out.print(" ");
+    System.out.println(decimalFormat.format(jaccard));
   }
 
   private static double calcNMI(double[][] probMtx) {
@@ -42,7 +48,7 @@ public class ClusterValidation {
 
   }
 
-  private static double[][] calcCountMatrix(List<String> in) {
+  private static int[][] calcCountMatrix(List<String> in) {
 
     //Get number of clusters in ground truth and clustering prediction
     int tCount = 0;
@@ -62,17 +68,63 @@ public class ClusterValidation {
       cMtx[Integer.parseInt(strTC[1])][tCount + 1]++;
       cMtx[cCount + 1][Integer.parseInt(strTC[0])]++;
     }
+    return cMtx;
+  }
 
-    double[][] probMtx = new double[cCount + 2][tCount + 2];
-    for(int i = 0; i < cMtx.length; i++) {
-      for(int j = 0; j < cMtx[0].length; j++) {
-        probMtx[i][j] = (double)cMtx[i][j] / count;
+  private static double[][] convertProbMatrix(int[][] countMatirx, int totalCount) {
+
+    double[][] probMtx = new double[countMatirx.length][countMatirx[0].length];
+    for(int i = 0; i < countMatirx.length; i++) {
+      for(int j = 0; j < countMatirx[0].length; j++) {
+        probMtx[i][j] = (double) countMatirx[i][j] / totalCount;
       }
     }
-
     return probMtx;
   }
 
+  private static double calcJaccard(int[][] cMtx) {
+    int tp = 0;
+    for(int i = 0; i < cMtx.length - 1; i++) {
+      for(int j = 0; j < cMtx[0].length - 1; j++) {
+        if(cMtx[i][j] < 2) {
+          continue;
+        }
+        tp += nC2(cMtx[i][j]);
+
+      }
+    }
+
+    int fp = 0;
+    for(int i = 0; i < cMtx[0].length - 1; i++) {
+      fp += nC2(cMtx[cMtx.length - 1][i]);
+    }
+    fp -= tp;
+
+
+    int fn = 0;
+    for(int i = 0; i < cMtx.length - 1; i++) {
+      fp += nC2(cMtx[i][cMtx[0].length - 1]);
+    }
+    fp -= tp;
+
+    return tp / (double) (tp + fn + fp);
+
+  }
+
+  private static int nC2(int n) {
+    return n * (n - 1) / 2;
+  }
+
+  private static int factorial(int n) {
+    if(n == 0) {
+      return 1;
+    }
+    int res = 1;
+    for(int i = 1; i <= n; i++) {
+      res *= i;
+    }
+    return res;
+  }
   private static List<String> getDummyInput() {
 
     List<String> result = new ArrayList<>();
@@ -83,6 +135,16 @@ public class ClusterValidation {
     result.add("2 2");
     return result;
   }
+
+//  private static List<String> getInputFromFile() {
+//    try {
+//      List<String> res = Files.readAllLines(Paths.get("src/main/resources/cluster_validation.txt"));
+//      return res;
+//    } catch (IOException e) {
+//      e.printStackTrace();
+//    }
+//    return null;
+//  }
 
   private static List<String> getInput() {
     Scanner scanner = new Scanner(System.in);
