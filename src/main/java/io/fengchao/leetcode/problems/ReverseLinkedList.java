@@ -1,6 +1,5 @@
 package io.fengchao.leetcode.problems;
 
-import static jdk.nashorn.internal.objects.Global.print;
 
 public class ReverseLinkedList {
 

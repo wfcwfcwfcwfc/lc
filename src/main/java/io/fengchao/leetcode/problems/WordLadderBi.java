@@ -6,7 +6,7 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
-import javafx.util.Pair;
+
 
 class WordLadderBi {
 
@@ -114,5 +114,23 @@ class WordLadderBi {
     List<String> dict = new ArrayList<>(Arrays.asList(new String[]{"cog", "hit"}));
     int result = wordLadderBi.ladderLength(begin, end, dict);
     System.out.println(result);
+  }
+}
+
+class Pair<K, V> {
+  K key;
+  V value;
+
+  public Pair(K key, V value) {
+    this.key = key;
+    this.value = value;
+  }
+
+  public K getKey() {
+    return key;
+  }
+
+  public V getValue() {
+    return value;
   }
 }
