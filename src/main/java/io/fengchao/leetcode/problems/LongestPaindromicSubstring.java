@@ -34,9 +34,45 @@ class LongestPalindromicSubstring {
     return result;
   }
 
+
+  public String longestPalindromen3(String s) {
+    int L = s.length();
+
+    for(int length = s.length(); length > 0; length--) {
+      for(int start = 0; start + length <= s.length(); start++) {
+        System.out.print(s.substring(start, start + length));
+        if(isPalindrome(s, start, start + length - 1)) {
+          return s.substring(start, start + length);
+        }
+      }
+    }
+
+    return "";
+
+
+  }
+
+  private boolean isPalindrome(String str, int start, int end) {
+    if(str == null ) {
+      return false;
+    }
+    if(str.length() == 0) {
+      return true;
+    }
+
+    while(start < end) {
+      if(str.charAt(start) == str.charAt(end)) {
+        start++;
+        end--;
+      }
+    }
+
+    return start >= end;
+  }
+
   public static void main(String[] args) {
     LongestPalindromicSubstring lp = new LongestPalindromicSubstring();
-    String result = lp.longestPalindrome("aaaa");
+    String result = lp.longestPalindromen3("babad");
     System.out.println(result);
   }
 }

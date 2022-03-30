@@ -43,5 +43,9 @@ public class BasicBitManipulation {
     int res = step5 | (m << i);
     System.out.println(res);
 
+    int highBit = a & (a - 1);
+    int lowBit = a & -a;
+    System.out.println();
+
   }
 }
