@@ -51,7 +51,7 @@ public class SfOptimization {
         List<Integer> length = new ArrayList<Integer>();
 
         while (graph.size() != 0) {
-            Map.Entry<String, List<String>> currentNode = getMaxRatioNode(graph, weights);
+            Map.Entry<String, List<String>> currentNode = getLowestDistanceNode(graph);
             graph.remove(currentNode.getKey());
 
             processedApps.add(currentNode.getKey());
